@@ -18,26 +18,36 @@ console = Console()
 from rich.progress import track
 import time
 
-# creating a progressbar that takes 10 seconds
+# #creating a progressbar that takes 10 seconds
 # for n in track(range(10), description="Processing.."):
 #     time.sleep(1)
 
 from rich.tree import Tree
 
-group1 = Tree("[red]Grupp1")
-group1.add("Araz")
-group1.add("Kalle")
-group1.add("Kavat")
-group1.add("Yaya")
+# group1 = Tree("[red]Grupp1")
+# group1.add("Araz")
+# group1.add("Kalle")
+# group1.add("Kavat")
+# group1.add("Yaya")
 
-group2 = Tree("[green]Grupp2")
-group2.add("Tom")
-group2.add("Tawan")
-group2.add("KChorf")
-group2.add("bang")
+# group2 = Tree("[green]Grupp2")
+# group2.add("Tom")
+# group2.add("Tawan")
+# group2.add("Khorf")
+# group2.add("bang")
 
-groups = Tree("[blue]Grupper")
-groups.add(group2)
-groups.add(group1)
+# groups = Tree("[blue]Grupper")
+# groups.add(group2)
+# groups.add(group1)
 
-console.print(groups)
+# console.print(groups)
+
+from rich.table import Table
+
+todo = Table("To do list:")
+todo.add_column("Check") # will truncate the table if we add another column after adding rows
+todo.add_row("Make smoothie", "✅") # windowskey + . for emoji list
+todo.add_row("Drink smoothie", "✅")
+todo.add_row("Enjoy smoothie","❌")
+
+console.print(todo)
