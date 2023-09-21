@@ -1,4 +1,6 @@
 from rich.console import Console
+from rich.progress import track
+import time
 
 console = Console()
 
@@ -11,5 +13,9 @@ console = Console()
 
 # console.print("Vit text på röd bakgrund", style="white on red")
 
-console.log("När vi använder log får vi en tidpunkt")
-console.rule("[bold red] Rubriken till ny avdelning")
+# console.log("När vi använder log får vi en tidpunkt")
+# console.rule("[bold red] Rubriken till ny avdelning")
+
+# creating a progressbar that takes 10 seconds
+for n in track(range(10), description="Processing.."):
+    time.sleep(1)
