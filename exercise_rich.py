@@ -42,4 +42,20 @@ def guessing_game():
                 break
 
 
-guessing_game()
+# guessing_game()
+
+
+# Something old, something new...
+
+
+def divide(num1, num2):
+    try:
+        result = num1 / num2
+        print(result)
+    except:
+        console.print("Error: ", style="color(9)", end="")
+        console.print("You've encountered a ", end="")
+        console.print("[link=https://www.pylenin.com/blogs/zero-division-error/#:%7E:text=Handling%20ZeroDivisionError%20in%20Python]ZeroDivisionError[/link]", style="color(12)")
+
+
+divide(2,0)
