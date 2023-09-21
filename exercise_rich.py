@@ -1,6 +1,7 @@
 from rich.console import Console
-from rich.prompt import IntPrompt, Confirm
+from rich.prompt import IntPrompt, Confirm, Prompt
 from rich.syntax import Syntax
+from rich.table import Table
 import numpy
 import sys
 
@@ -63,15 +64,36 @@ def divide(num1, num2):
 # divide(2,0)
 
 # print the content of a file
-def print_with_syntax(file_to_read):
-    try:
-        with open(file_to_read, 'r') as file:
-            content = Syntax(file.read(), "python")
-            console.print(content)
+# def print_with_syntax(file_to_read):
+#     try:
+#         with open(file_to_read, 'r') as file:
+#             content = Syntax(file.read(), "python")
+#             console.print(content)
 
-    except FileNotFoundError:
-        console.print("Error, no file", style="black on red")
+#     except FileNotFoundError:
+#         console.print("Error, no file", style="black on red")
 
-if __name__ == '__main__':
-    file_to_read = sys.argv[1]
-    print_with_syntax(file_to_read)
+# if __name__ == '__main__':
+#     file_to_read = sys.argv[1]
+#     print_with_syntax(file_to_read)
+
+
+# Tables
+
+def create_table():
+    user_table = Prompt.ask("What's the index of your table? ")
+    table = Table(user_table)
+    amount_columns = IntPrompt.ask("How many columns do you need? ")
+    for column in range(amount_columns):
+        column_name = Prompt.ask("Enter name of column")
+        table.add_column(column_name)
+    
+    for row in range(amount_columns+1):
+        index = Prompt.ask("Enter index")
+        value = Prompt.ask("Enter value")
+        table.add_row(index,value)
+
+
+    console.print(table)
+
+create_table()
