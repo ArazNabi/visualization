@@ -81,19 +81,25 @@ def divide(num1, num2):
 # Tables
 
 def create_table():
-    user_table = Prompt.ask("What's the index of your table? ")
-    table = Table(user_table)
-    amount_columns = IntPrompt.ask("How many columns do you need? ")
+    user_title = Prompt.ask("What's the name of your table? ") 
+    user_table = Table(title=user_title)
+    amount_columns = IntPrompt.ask("How many columns do you need? ") # how many in total
     for column in range(amount_columns):
-        column_name = Prompt.ask("Enter name of column")
-        table.add_column(column_name)
+        column_name = Prompt.ask("Enter name of column") # names of columns
+        user_table.add_column(column_name)
+
+    amount_rows = IntPrompt.ask("How many rows do you need? ")  #total rows of inserts 
+    for row in range(amount_rows):
+        values = []
+        for column in range(amount_columns):
+            insert_value = Prompt.ask("Enter value")
+            values.append(insert_value)
+            
+        #TODO- find a way to insert the values one by one
     
-    for row in range(amount_columns+1):
-        index = Prompt.ask("Enter index")
-        value = Prompt.ask("Enter value")
-        table.add_row(index,value)
+        user_table.add_row(values)
 
 
-    console.print(table)
+    console.print(user_table)
 
 create_table()
