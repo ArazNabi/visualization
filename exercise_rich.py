@@ -1,6 +1,8 @@
 from rich.console import Console
 from rich.prompt import IntPrompt, Confirm
+from rich.syntax import Syntax
 import numpy
+import sys
 
 console = Console()
 
@@ -59,3 +61,17 @@ def divide(num1, num2):
 
 
 # divide(2,0)
+
+# print the content of a file
+def print_with_syntax(file_to_read):
+    try:
+        with open(file_to_read, 'r') as file:
+            content = Syntax(file.read(), "python")
+            console.print(content)
+
+    except FileNotFoundError:
+        console.print("Error, no file", style="black on red")
+
+if __name__ == '__main__':
+    file_to_read = sys.argv[1]
+    print_with_syntax(file_to_read)
