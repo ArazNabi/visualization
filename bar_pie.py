@@ -30,12 +30,19 @@ CURR_DIR_PATH = os.path.dirname(os.path.realpath(__file__))
 
 medals = pd.read_csv(CURR_DIR_PATH+'\\'+'London 2012 Olympic alternative medal rankings - ALL.csv')
 
-
 countries_medals = medals[['Country name','Gold','Silver','Bronze','Total']]
 countries_medals.set_index("Country name", inplace=True)
 only_countries_medals = countries_medals.loc[(countries_medals!=0).any(axis=1)]
+top_ten = only_countries_medals.nlargest(10, 'Total')
 
-print(only_countries_medals)
-
-# plt.bar(only_countries_medals['Country name'], medals['Gold'])
+# top_ten[['Gold', 'Silver', 'Bronze']].plot(kind='bar', stacked=True, color=['gold', 'silver', 'saddlebrown'])
+# plt.title('Top ten medals 2012')
+# plt.xlabel('Country Name')
+# plt.ylabel('Total')
 # plt.show()
+
+top_ten[['Bronze', 'Silver','Gold' ]].plot(kind='barh', stacked=True, color=['saddlebrown', 'silver', 'gold'])
+plt.title('Top ten medals 2012')
+plt.ylabel('Country Name')
+plt.xlabel('Total')
+plt.show()

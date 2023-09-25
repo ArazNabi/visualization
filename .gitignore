@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+/London 2012 Olympic alternative medal rankings - ALL.csv
 /cheatsheet_matplotlib.pdf
 
 # C extensions
