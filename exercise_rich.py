@@ -80,6 +80,7 @@ def divide(num1, num2):
 
 # Tables
 
+
 def create_table():
     user_title = Prompt.ask("What's the name of your table? ") 
     user_table = Table(title=user_title)
