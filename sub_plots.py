@@ -70,8 +70,8 @@ sales = pd.read_csv(CURR_DIR_PATH+'\\'+'forsaljning.csv')
 max_value = sales[sales['2019'] == sales['2019'].max()]
 min_value = sales[sales['2019'] == sales['2019'].min()]
 
-colors = ['green' if row['2019'] == max_value['2019'].values[0] else 'red' for index, row in sales.iterrows()]
+colors = ['green' if row['2019'] == max_value['2019'].values[0] else 'red' if row['2019'] == min_value['2019'].values[0] else 'black' for index, row in sales.iterrows()]
 
 plt.bar(sales['Manad'], sales['2019'], color=colors)
-
+plt.title("Sales 2019")
 plt.show()
