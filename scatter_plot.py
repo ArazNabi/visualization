@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-
+plt.style.use('seaborn')
 
 # # Create a scatter plot of random data point
 
@@ -34,6 +34,7 @@ for i in range(100):
         plt.scatter(weight[i], height[i], color='red')
     else:
         plt.scatter(weight[i], height[i], color='green')
+
 
 plt.title("BMI")
 plt.show()
